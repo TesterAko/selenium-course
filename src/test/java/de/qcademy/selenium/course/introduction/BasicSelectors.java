@@ -1,10 +1,10 @@
 package de.qcademy.selenium.course.introduction;
-/*
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -18,13 +18,13 @@ public class BasicSelectors {
     //Vorbedingungen von Webdriver definieren
     @BeforeAll//Annotation, vor allen Tests wird dieser Setup konfiguriert bzw. Methode ausgeführt
     static void globalSetup() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.edgedriver().setup();
     }
 
     @BeforeEach
         //vorbedingung vor jedem Testfall
     void setup() {
-        driver = new ChromeDriver();
+        driver = new EdgeDriver();
     }
 
     @AfterEach
@@ -33,7 +33,7 @@ public class BasicSelectors {
             driver.quit();//Browser wird nach der Ausführung des Tests geschlossen
         }
     }
-
+//JAVAFaker probieren!
 //Setup beendet __________________________________________________________
 // Actions _______________________________________________________________
 // führen wir die User Interaktionen durch
@@ -43,14 +43,14 @@ public class BasicSelectors {
     //Annotation - Deklaration eines Tests
     void test1() throws InterruptedException { //+3 Schritte Arrange Act Assert, ist kein Muss
         //Arrange - Vorbereiten//----------- gehört noch zum Setup
-        String email = "xyz@gmail.com";
+        String email = "test2@gmail.com";
         String vorname = "John";
         String nachname = "Wayne";
-        String password = "abcd";
+        String password = "abcdefg";
         String expectedUsername = "John Wayne";//Ich kann den erwarteten Testergebnis in diesem Fall Username auch in Vorbedingungen definieren
 //Seite wurde verschoben Test fail!
         //Act - agieren als Nutzer
-        driver.get("https://google-gruyere.appspot.com/652510093833423267713756979883987092815/");//rufe website auf
+        driver.get("http://www.automationpractice.pl/index.php");//rufe website auf
         Thread.sleep(3000);
         driver.findElement(By.className("login")).click();
         //classname mit Entwicklertools gefunden (Selector)
@@ -58,7 +58,8 @@ public class BasicSelectors {
         //"by" - Selector //Bei HTML wird ID immer fest definiert/eindeutig
         driver.findElement(By.id("email_create")).sendKeys(email);//sendkeys, damit kann ich davor definierte variablen verwenden in diesem Fall email
         driver.findElement(By.id("SubmitCreate")).click();
-        driver.findElement(By.id("unifrom-id_gender1")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.id("uniform-id_gender1")).click();
         driver.findElement(By.id("customer_firstname")).sendKeys(vorname);
         driver.findElement(By.id("customer_lastname")).sendKeys(nachname);
         driver.findElement(By.id("passwd")).sendKeys(password);
@@ -69,6 +70,7 @@ public class BasicSelectors {
         Select yearSelect = new Select(driver.findElement(By.id("years")));//Select datentyp ermöglicht uns eine option zu selektieren bspw. drop down
         yearSelect.selectByIndex(5);
         driver.findElement(By.id("submitAccount")).click();
+        Thread.sleep(3000);
         String actualUsername = driver.findElement(By.className("header_user_info")).getText().trim();
 
 
@@ -78,4 +80,3 @@ public class BasicSelectors {
 
     }
 }
-*/
