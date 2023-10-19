@@ -6,7 +6,6 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.openqa.selenium.support.ui.Select;
 
 public class SignInTest {
@@ -45,7 +44,7 @@ public class SignInTest {
         //Act Block
         driver.get("http://www.automationpractice.pl/index.php");
         driver.manage().window().maximize();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
 
         driver.findElement(By.className("login")).click();
         Thread.sleep(2000);
@@ -67,7 +66,6 @@ public class SignInTest {
         select.selectByValue("1988");
         driver.findElement(By.id("newsletter")).click();
         driver.findElement(By.id("submitAccount")).click();
-        Thread.sleep(2000);
 
         Assertions.assertEquals(expectedUserName, driver.findElement(By.className("account")).getText());
     }

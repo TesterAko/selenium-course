@@ -29,8 +29,8 @@ public class LogInInvalidUserName {
     }
 
     @Test
-    @DisplayName("SignIn Test")
-    void signInTest() throws InterruptedException {
+    @DisplayName("LogInTestInvalidUserName")
+    void LogInTestInvalidUserName() throws InterruptedException {
         String username = "xyz";
         String password = "SuperSecretPassword!";
 
