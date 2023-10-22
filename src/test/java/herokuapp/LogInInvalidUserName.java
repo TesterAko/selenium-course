@@ -40,5 +40,8 @@ public class LogInInvalidUserName {
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.cssSelector("button[type='submit']")).click();
         Thread.sleep(2000);
+        String actualErrorMessage = driver.findElement(By.id("flash")).getText();
+        Assertions.assertTrue(actualErrorMessage.contains("Your username is invalid!"));
+
     }
 }

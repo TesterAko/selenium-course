@@ -40,5 +40,7 @@ public class LogInValidData {
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.cssSelector("button[type='submit']")).click();
         Thread.sleep(2000);
+        Assertions.assertEquals("Secure Area", driver.findElement(By.cssSelector("h2")).getText());
+
     }
 }

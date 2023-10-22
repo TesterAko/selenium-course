@@ -40,5 +40,8 @@ public class LogInInvalidPassword {
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.cssSelector("button[type='submit']")).click();
         Thread.sleep(2000);
+        String errorMessage = driver.findElement(By.id("flash")).getText();
+        Assertions.assertTrue(errorMessage.contains("Your password is invalid!"));
+
     }
 }
