@@ -43,7 +43,7 @@ public class BasicSelectors {
     //Annotation - Deklaration eines Tests
     void test1() throws InterruptedException { //+3 Schritte Arrange Act Assert, ist kein Muss
         //Arrange - Vorbereiten//----------- gehört noch zum Setup
-        String email = "test2@gmail.com";
+        String email = "test2405@gmail.com";
         String vorname = "John";
         String nachname = "Wayne";
         String password = "abcdefg";
